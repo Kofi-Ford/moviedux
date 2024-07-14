@@ -10,5 +10,5 @@ export default function Footer(){
             © {currentYear} Moviedux, All rights reserved.
             </p>            
         </footer>
-    )
+    );
 }
