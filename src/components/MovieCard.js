@@ -1,23 +1,36 @@
-import React from "react";
+import React from 'react';
 import '../styles.css';
 
-export default function MoviesCard({movie}) {
+export default function MoviesCard({ movie }) {
+	const handleError = (e) => {
+		e.target.src = 'images/default.jpg';
+	};
 
-    const handleError = (e) => {
-        e.target.src = "images/default.jpg"
-    }
+	const getRatingClass = (rating) => {
+		if (rating >= 8) {
+			return 'rating-good';
+		} else if (rating >= 5) {
+			return 'rating-ok';
+		} else {
+			return 'rating-bad';
+		}
+		// if rating >= 5 &&
+	};
 
-
-    return (
-      <div key={movie.id} className="movie-card">
-        <img src={`images/${movie.image}`} alt={movie.title} onError={handleError} />
-        <div>
-          <h3 className="movie-card-title"> {movie.title} </h3>
-          <p className="movie-card-genre"> {movie.genre}</p>
-          <p className="movie-card-rating"> {movie.rating}</p>
-        </div>
-      </div>
-    );
-
+	return (
+		<div key={movie.id} className="movie-card">
+			<img
+				src={`images/${movie.image}`}
+				alt={movie.title}
+				onError={handleError}
+			/>
+			<div>
+				<h3 className="movie-card-title"> {movie.title} </h3>
+				<p className="movie-card-genre"> {movie.genre}</p>
+				<p className={`movie-card-rating ${getRatingClass(movie.rating)}`}>
+					{movie.rating}
+				</p>
+			</div>
+		</div>
+	);
 }
-
