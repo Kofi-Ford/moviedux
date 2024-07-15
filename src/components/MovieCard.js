@@ -14,7 +14,6 @@ export default function MoviesCard({ movie }) {
 		} else {
 			return 'rating-bad';
 		}
-		// if rating >= 5 &&
 	};
 
 	return (
