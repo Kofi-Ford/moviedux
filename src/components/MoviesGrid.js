@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles.css';
 import MoviesCard from './MovieCard';
 
-export default function MoviesGrid() {
-	const [movies, setMovies] = useState([]);
+export default function MoviesGrid({ movies }) {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const [genre, setGenre] = useState('All Genres');
 	const [rating, setRating] = useState('All');
-
-	useEffect(() => {
-		fetch('movies.json')
-			.then((response) => response.json())
-			.then((data) => setMovies(data));
-	}, []);
 
 	const handleSearchChange = (e) => {
 		setSearchTerm(e.target.value);
