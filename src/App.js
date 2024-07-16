@@ -9,7 +9,7 @@ import Watchlist from './components/Watchlist';
 
 function App() {
 	const [movies, setMovies] = useState([]);
-	const [wacthlist, setWacthlist] = useState([]);
+	const [watchlist, setWatchlist] = useState([]);
 
 	useEffect(() => {
 		fetch('movies.json')
@@ -18,7 +18,7 @@ function App() {
 	}, []);
 
 	const toggleWatchlist = (movieId) => {
-		setWacthlist((prev) =>
+		setWatchlist((prev) =>
 			prev.includes(movieId)
 				? prev.filter((id) => id !== movieId)
 				: [...prev, movieId]
@@ -41,10 +41,25 @@ function App() {
 						</ul>
 					</nav>
 					<Routes>
-						<Route path="/" element={<MoviesGrid movies={movies} />}></Route>
+						<Route
+							path="/"
+							element={
+								<MoviesGrid
+									movies={movies}
+									watchlist={watchlist}
+									toggleWatchlist={toggleWatchlist}
+								/>
+							}
+						></Route>
 						<Route
 							path="/watchlist"
-							element={<Watchlist movies={movies} />}
+							element={
+								<Watchlist
+									movies={movies}
+									watchlist={watchlist}
+									toggleWatchlist={toggleWatchlist}
+								/>
+							}
 						></Route>
 					</Routes>
 				</Router>
