@@ -2,19 +2,23 @@ import './App.css';
 import './styles.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { appwriteDatabase } from './Utils';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MoviesGrid from './components/MoviesGrid';
 import Watchlist from './components/Watchlist';
 
 function App() {
+	const dbId = process.env.DB_ID;
+	const collectionId = process.env.COLLECTION_ID;
+
 	const [movies, setMovies] = useState([]);
 	const [watchlist, setWatchlist] = useState([]);
 
 	useEffect(() => {
-		fetch('movies.json')
-			.then((response) => response.json())
-			.then((data) => setMovies(data));
+		appwriteDatabase
+			.listDocuments(dbId, collectionId, [])
+			.then((data) => setMovies(data.documents));
 	}, []);
 
 	const toggleWatchlist = (movieId) => {
