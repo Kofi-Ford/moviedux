@@ -1,7 +1,14 @@
 import React from 'react';
+import { appwriteStorage } from '../Utils';
 import '../styles.css';
 
 export default function MoviesCard({ movie, onWatchlist, toggleWatchlist }) {
+	const imageBucketEndpoint = process.env.REACT_APP_IMAGE_BUCKET_ID;
+
+	const imageList = appwriteStorage.listFiles(imageBucketEndpoint);
+
+	console.log(imageList);
+
 	const handleError = (e) => {
 		e.target.src = 'images/default.jpg';
 	};

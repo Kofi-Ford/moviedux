@@ -1,7 +1,7 @@
 import { Client, Account } from 'appwrite';
 
-const serverEndpoint = process.env.SERVER_ENDPOINT;
-const projectId = process.env.PROJECT_ID;
+const serverEndpoint = process.env.REACT_APP_SERVER_ENDPOINT;
+const projectId = process.env.REACT_APP_PROJECT_ID;
 
 client.setEndpoint(serverEndpoint).setProject(projectId);
 

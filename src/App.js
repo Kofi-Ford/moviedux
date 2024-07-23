@@ -9,8 +9,8 @@ import MoviesGrid from './components/MoviesGrid';
 import Watchlist from './components/Watchlist';
 
 function App() {
-	const dbId = process.env.DB_ID;
-	const collectionId = process.env.COLLECTION_ID;
+	const dbId = process.env.REACT_APP_DB_ID;
+	const collectionId = process.env.REACT_APP_COLLECTION_ID;
 
 	const [movies, setMovies] = useState([]);
 	const [watchlist, setWatchlist] = useState([]);
