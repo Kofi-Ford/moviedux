@@ -7,7 +7,7 @@ export default function MoviesCard({ movie, onWatchlist, toggleWatchlist }) {
 
 	const imageList = appwriteStorage.listFiles(imageBucketEndpoint);
 
-	console.log(imageList);
+	// console.log(imageList);
 
 	const handleError = (e) => {
 		e.target.src = 'images/default.jpg';
@@ -42,7 +42,7 @@ export default function MoviesCard({ movie, onWatchlist, toggleWatchlist }) {
 					<input
 						type="checkbox"
 						checked={onWatchlist}
-						onChange={() => toggleWatchlist(movie.id)}
+						onChange={() => toggleWatchlist(movie.title)}
 					></input>
 					<span className="slider">
 						<span className="slider-label">

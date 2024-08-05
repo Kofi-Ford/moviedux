@@ -100,7 +100,7 @@ export default function MoviesGrid({ movies, watchlist, toggleWatchlist }) {
 						movie={movie}
 						key={movie.id}
 						toggleWatchlist={toggleWatchlist}
-						onWatchlist={watchlist.includes(movie.id)}
+						onWatchlist={watchlist.includes(movie.title)}
 					></MoviesCard>
 				))}
 			</div>
